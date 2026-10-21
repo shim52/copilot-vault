@@ -1,0 +1,10 @@
+[Unit]
+Description=copilot-vault daily pass (several fires per side; extra fires are instant exits once delivered)
+
+[Timer]
+{{SYSTEMD_ONCALENDAR}}
+Persistent=true
+WakeSystem=true
+
+[Install]
+WantedBy=timers.target

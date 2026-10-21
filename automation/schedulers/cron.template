@@ -1,0 +1,4 @@
+# copilot-vault daily pass — several fires per side; each is an instant exit once that side is done.
+# Evening fires build tomorrow's brief; morning fires refresh + deliver today's. Times are local.
+# cron cannot wake a sleeping machine; if yours sleeps, prefer launchd (macOS) or a systemd timer with WakeSystem.
+{{CRON_LINES}}

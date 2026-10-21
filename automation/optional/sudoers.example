@@ -1,0 +1,4 @@
+# /etc/sudoers.d/copilot-vault  (macOS, optional — only for the wake chain / lid-closed runs)
+# Replace USERNAME. Install with: sudo visudo -f /etc/sudoers.d/copilot-vault
+USERNAME ALL=(root) NOPASSWD: /usr/bin/pmset schedule wake *
+USERNAME ALL=(root) NOPASSWD: /usr/bin/pmset -b disablesleep *

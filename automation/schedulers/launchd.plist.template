@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>Label</key>
+    <string>{{LAUNCHD_LABEL}}</string>
+    <key>ProgramArguments</key>
+    <array>
+        <string>/bin/bash</string>
+        <string>{{AUTOMATION_DIR}}/vault-tick.sh</string>
+    </array>
+    <!-- Several fires per side. Each is an instant exit once that side's stamp exists, so extra
+         fires are free; they turn a single fragile cron moment into near-guaranteed delivery.
+         Evening fires build TOMORROW's brief (BRIEF_DATE = tomorrow); morning fires refresh and
+         deliver TODAY's. The script itself gates on BRIEF_DATE being a workday. -->
+    <key>StartCalendarInterval</key>
+    <array>
+{{LAUNCHD_INTERVALS}}
+    </array>
+    <key>RunAtLoad</key><false/>
+    <key>StandardOutPath</key><string>{{AUTOMATION_DIR}}/logs/launchd.out</string>
+    <key>StandardErrorPath</key><string>{{AUTOMATION_DIR}}/logs/launchd.err</string>
+    <key>EnvironmentVariables</key>
+    <dict>
+        <key>PATH</key><string>/opt/homebrew/bin:/usr/local/bin:{{HOME}}/.local/bin:/usr/bin:/bin:/usr/sbin:/sbin</string>
+        <key>HOME</key><string>{{HOME}}</string>
+    </dict>
+</dict>
+</plist>
