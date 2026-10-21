@@ -4,4 +4,4 @@
 
 ## [{{TODAY}}] setup | Vault bootstrapped from copilot-vault
 - Vault created for {{USER_NAME}} ({{ROLE}} @ {{ORG_NAME}}). Folders, templates, Dashboard, My Tasks, and Team Tasks seeded empty.
-- Next: fill [[Onboarding Checklist]], create person pages for the manager and team, start the daily note.
+- Next: {{START_NEXT}}

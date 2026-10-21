@@ -8,7 +8,7 @@ It was built over several months of daily use and then stripped of everything sp
 
 ## What you get
 
-**A vault schema** (`vault/`) — numbered folders with a clear job each: `00-Onboarding` (first 90 days, open questions, glossary), `01-Org` (durable knowledge about the place), `02-People` (one page per person with their `📦 Open items`), `03-Meetings` (a `00-Today` inbox that files itself into a date hierarchy), `04-My-Team` (overview, processes, projects, a tracker-fed team board), `05-Knowledge`, `06-Daily`, `07-Voice` (your writing style, so drafts sound like you), templates, and four landmark pages: `Index`, `Dashboard`, `My Tasks`, `Log`.
+**A vault schema** (`vault/`) — numbered folders with a clear job each: `00-Start` (seed the vault if you're already in the role, or a 30-60-90 plan if you're new; open questions; glossary), `01-Org` (durable knowledge about the place), `02-People` (one page per person with their `📦 Open items`), `03-Meetings` (a `00-Today` inbox that files itself into a date hierarchy), `04-My-Team` (overview, processes, projects, a tracker-fed team board), `05-Knowledge`, `06-Daily`, `07-Voice` (your writing style, so drafts sound like you), templates, and four landmark pages: `Index`, `Dashboard`, `My Tasks`, `Log`.
 
 **Rules that make an AI assistant safe in it** (`vault/CLAUDE.md`) — privacy (never leaves disk, never git), never auto-done / never auto-drop, one ask = one checkbox, the Dashboard is a mirror not a source, a dismissal list that always wins, draft-as-me with explicit go before anything is sent.
 

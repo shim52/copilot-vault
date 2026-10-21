@@ -31,6 +31,8 @@ QUESTIONS = [
      "#raise-mgr items are prefixed with this person; their 1-1 prep seeds those items."),
     ("PRODUCT_NAME", "What do you build / the product name", "Our Product", None, True,
      "The vault refers to it by this name consistently."),
+    ("NEW_TO_ROLE", "Are you new to this role? (yes = 30-60-90 onboarding track; no = seed the vault from what you already know)", "no", ["yes", "no"], False,
+     "Both tracks live in 00-Start/; this only chooses which one the Index, Log and next steps point you to first."),
     ("VAULT_PATH", "Where to create the vault (absolute path; NOT inside Documents/Desktop/iCloud on macOS)",
      os.path.join(os.path.expanduser("~"), "Vault"), None, True,
      "macOS gates Documents/Desktop behind per-binary consent prompts; a headless run cannot click them. Home root is safe."),
@@ -119,7 +121,7 @@ def collect(args):
         elif key in cfg:
             val = cfg[key]
         elif interactive:
-            if key not in ("USER_NAME", "ROLE", "ORG_NAME", "TEAM_NAME", "MANAGER_NAME", "PRODUCT_NAME", "VAULT_PATH", "AUTOMATION") \
+            if key not in ("USER_NAME", "ROLE", "ORG_NAME", "TEAM_NAME", "MANAGER_NAME", "PRODUCT_NAME", "NEW_TO_ROLE", "VAULT_PATH", "AUTOMATION") \
                     and answers.get("AUTOMATION") == "no" and key in AUTOMATION_KEYS:
                 val = default or ""
             else:
@@ -176,6 +178,9 @@ def placeholders(a):
         "CHAT_USER_ID": a["CHAT_USER_ID"] or "(unknown — never claim you replied)",
         "TRACKER_URL_PREFIX": a["TRACKER_URL_PREFIX"] or "https://<tracker>/",
         "USER_EMAIL": a["USER_EMAIL"] or "(email not configured)",
+        "START_NEXT": ("work through [[Onboarding Checklist]] and agree the [[30-60-90 Plan]]; create person pages as you meet people; start the daily note."
+                       if a["NEW_TO_ROLE"] == "yes" else
+                       "work through [[Seed the Vault]] — people pages with today's 📦 Open items first, then commitments into [[My Tasks]]; start the daily note."),
     })
     return p
 
@@ -393,7 +398,9 @@ def main():
             log("  runner self-check: " + ("ok" if r.returncode == 0 else f"FAILED\n{r.stdout}{r.stderr}"))
     next_steps = [
         f"Open {a['VAULT_PATH']} in Obsidian (File → Open folder as vault). Start at Index.md.",
-        f"Create 02-People/{a['MANAGER_NAME']}.md from 99-Templates/Person.md, then one page per teammate (Email: line matters).",
+        (f"Open 00-Start/Onboarding Checklist.md and the 30-60-90 Plan; create 02-People/{a['MANAGER_NAME']}.md from 99-Templates/Person.md as a first page."
+         if a["NEW_TO_ROLE"] == "yes" else
+         f"Open 00-Start/Seed the Vault.md: create 02-People/ pages (manager {a['MANAGER_NAME']} first) with today's 📦 Open items, then dump commitments into My Tasks."),
         "Run `claude` inside the vault — CLAUDE.md teaches it the rules. Try: \"ingest this doc\", \"lint the vault\", \"draft a reply as me\".",
     ]
     if a["AUTOMATION"] == "yes":

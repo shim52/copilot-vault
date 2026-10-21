@@ -6,10 +6,12 @@
 - [[Dashboard]] — ✅ everything I need to handle, in one place (a mirror; act at the source)
 - [[My Tasks]] — durable home for my personal to-dos, by disposition
 - [[Team Tasks]] — headline view of my team's in-flight work
-- [[30-60-90 Plan]] — learn → contribute → own (any role)
-- [[Onboarding Checklist]] — people & access
-- [[Open Questions]] — running list for manager/team
+- [[Open Questions]] — things I need someone else to answer (seeded into 1-1 prep)
 - [[Glossary]] — org & domain terms
+
+## 🌱 Getting the vault going
+- Already in the role → [[Seed the Vault]] — move what's in your head into the pages the co-pilot reads
+- New to the role → [[30-60-90 Plan]] (learn → contribute → own) · [[Onboarding Checklist]] (people & access)
 
 ## 🏢 Org & product
 - [[{{PRODUCT_NAME}}]] — what we build

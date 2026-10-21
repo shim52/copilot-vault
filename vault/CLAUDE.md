@@ -18,7 +18,7 @@ Inspired by the "LLM Wiki" pattern: raw notes get distilled into durable, cross-
 
 | Folder | Purpose |
 |--------|---------|
-| `00-Onboarding/` | 30-60-90 plan, checklists, open questions, glossary. The first-90-days cockpit (keep using Open Questions after). |
+| `00-Start/` | Getting the vault going: `Seed the Vault` (already in the role) or `30-60-90 Plan` + `Onboarding Checklist` (new to it), plus the permanent `Open Questions` and `Glossary`. |
 | `01-Org/` | Durable knowledge about the organization: `Product/`, `How-We-Work/` (dev cycle, rituals, release process), `Org-and-Teams/`. |
 | `02-People/` | One page per person (manager, team, peers, cross-functional). Entity pages with `📦 Open items`. |
 | `03-Meetings/` | Meeting notes. `00-Today/` is the shared inbox for today's notes (all types); the evening pass files each into its scope by `meeting-type:` — `1-1`→`1-1s/`, else→`Group/` — under a `<YYYY-MM>/<YYYY-Www>/<YYYY-MM-DD>/` date hierarchy. |

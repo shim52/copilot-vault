@@ -7,7 +7,7 @@ A private Obsidian vault + an optional daily pass. The vault is a structured pla
 
 ## 2. Collect answers conversationally
 Run `./install.sh --print-questions` and read the JSON. Then **talk, don't interrogate**:
-- Ask the required ones first (name, role, org, team, manager, product, vault path) in one or two natural questions. Offer the defaults.
+- Ask the required ones first (name, role, org, team, manager, product, vault path) in one or two natural questions. Offer the defaults. Ask whether they're new to the role: it picks the starting track (`Seed the Vault` for someone already in it, the 30-60-90 plan for a newcomer).
 - Explain the automation opt-in using the `why` text of the `AUTOMATION` question, in your own words, honestly: it costs model usage every day and needs the machine awake; in return the vault maintains itself and they get a brief every morning. Respect a "no".
 - If they say yes to automation, ask about delivery (where do they want the brief: Slack/Discord webhook, ntfy, a desktop notification, or just a file), their workdays, and rough morning/evening times. Everything else can stay default.
 - Connector tool ids (`CONNECTOR_TOOLS`) are the fiddly part. If the person already has Claude Code connectors (calendar, chat, tracker), list the exact read-only tool names you can see in your own tool list and propose them; otherwise leave it empty — the pass works vault-only and they can add tools later in `automation.env`.

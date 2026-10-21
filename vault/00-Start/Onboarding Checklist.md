@@ -1,11 +1,11 @@
 ---
-type: onboarding
-tags: [onboarding, checklist]
+type: start
+tags: [start, checklist]
 ---
 
 # ✅ Onboarding Checklist
 
-> People, access and setup for the first weeks. Tick as you go; the Dashboard mirrors anything left open.
+> **For when you're new to the role** (already in it? use [[Seed the Vault]]). People, access and setup for the first weeks. Tick as you go; the Dashboard mirrors anything left open.
 
 ## 👥 People to meet (create a `02-People/` page for each)
 - [ ] [[{{MANAGER_NAME}}]] — manager

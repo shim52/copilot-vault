@@ -5,6 +5,7 @@
   "TEAM_NAME": "Payments",
   "MANAGER_NAME": "Sam",
   "PRODUCT_NAME": "Acme Platform",
+  "NEW_TO_ROLE": "no",
   "VAULT_PATH": "~/Vault",
   "DRAFT_LANGUAGE": "English",
   "USER_EMAIL": "dana@acme.com",
