@@ -1,0 +1,29 @@
+{
+  "permissions": {
+    "allow": [
+      "Read",
+      "Glob",
+      "Grep",
+      "Edit",
+      "Write",
+      "Bash(ls *)",
+      "Bash(cat *)",
+      "Bash(grep *)",
+      "Bash(rg *)",
+      "Bash(find *)",
+      "Bash(date *)",
+      "Bash(wc *)",
+      "Bash(head *)",
+      "Bash(tail *)"
+    ],
+    "deny": [
+      "Bash(git *)",
+      "Bash(curl *)",
+      "Bash(wget *)",
+      "Bash(scp *)",
+      "Bash(rsync *)",
+      "WebFetch",
+      "WebSearch"
+    ]
+  }
+}

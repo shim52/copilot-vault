@@ -1,0 +1,7 @@
+# =============================================================
+#  PRIVATE & SENSITIVE VAULT — DO NOT COMMIT OR SHARE
+#  This vault contains private notes, meeting notes, and internal
+#  company knowledge. It must never be pushed to git or uploaded
+#  anywhere external. This file ignores everything as a backstop.
+# =============================================================
+*

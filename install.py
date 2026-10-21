@@ -195,7 +195,7 @@ def copy_vault(a, p, dry, force):
             os.makedirs(dest_dir, exist_ok=True)
         for fn in files:
             src = os.path.join(root, fn)
-            dst = os.path.join(dest_dir, subst(fn, p))
+            dst = os.path.join(dest_dir, ".gitignore" if fn == "gitignore.template" else subst(fn, p))   # the template vault must be committable; the installed vault ignores everything
             if os.path.exists(dst) and not force:
                 kept.append(dst); continue
             if not dry:
