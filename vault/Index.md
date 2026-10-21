@@ -6,7 +6,7 @@
 - [[Dashboard]] — ✅ everything I need to handle, in one place (a mirror; act at the source)
 - [[My Tasks]] — durable home for my personal to-dos, by disposition
 - [[Team Tasks]] — headline view of my team's in-flight work
-- [[30-60-90 Plan]] — onboard → take ownership → own it
+- [[30-60-90 Plan]] — learn → contribute → own (any role)
 - [[Onboarding Checklist]] — people & access
 - [[Open Questions]] — running list for manager/team
 - [[Glossary]] — org & domain terms
