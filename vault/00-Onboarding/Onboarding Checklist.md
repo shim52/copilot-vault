@@ -5,22 +5,23 @@ tags: [onboarding, checklist]
 
 # ✅ Onboarding Checklist
 
+> People, access and setup for the first weeks. Tick as you go; the Dashboard mirrors anything left open.
+
 ## 👥 People to meet (create a `02-People/` page for each)
 - [ ] [[{{MANAGER_NAME}}]] — manager
-- [ ] Each person on my team → [[Team Overview]]
-- [ ] Product partner(s)
-- [ ] Adjacent team leads
-- [ ] Onboarding buddy
+- [ ] The people I'll work with daily → [[Team Overview]]
+- [ ] The people whose work mine depends on, and who depend on mine
+- [ ] A buddy or go-to person for "how do I…" questions
 
 ## 🔑 Access & accounts
-- [ ] Source control
-- [ ] Issue tracker ({{TRACKER_NAME}})
-- [ ] Chat workspace + team channel ({{TEAM_CHANNEL}})
-- [ ] Docs / wiki
+- [ ] Chat workspace + the channels I need ({{TEAM_CHANNEL}})
+- [ ] Work tracker ({{TRACKER_NAME}})
+- [ ] Docs / wiki / shared drives
 - [ ] Calendar shared with the team
-- [ ] Environments / dashboards relevant to my role
+- [ ] Any role-specific systems (code, data, design, CRM, admin consoles…)
 
-## 🛠️ Environment
-- [ ] Local dev environment (if applicable)
-- [ ] Obsidian + this vault; daily pass installed (see the copilot-vault README)
+## 🛠️ Setup
+- [ ] Role-specific tooling installed and working
+- [ ] Obsidian + this vault; daily pass installed if wanted (see the copilot-vault README)
 - [ ] Claude Code connectors for calendar / chat / tracker (read-only)
+- [ ] First daily note written; first `- raise <topic> with [[Person]]` captured
