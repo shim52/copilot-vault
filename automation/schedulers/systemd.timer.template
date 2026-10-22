@@ -4,7 +4,7 @@ Description=copilot-vault daily pass (several fires per side; extra fires are in
 [Timer]
 {{SYSTEMD_ONCALENDAR}}
 Persistent=true
-WakeSystem=true
+WakeSystem={{WAKE_SYSTEM}}
 
 [Install]
 WantedBy=timers.target

@@ -71,4 +71,29 @@ tpl=open(os.path.join(sys.argv[1],"automation/schedulers/launchd.plist.template"
 assert "{{LAUNCHD_INTERVALS}}" in tpl and "{{AUTOMATION_DIR}}" in tpl
 PY
 pass "templates carry their placeholders"
+grep -q 'WakeSystem={{WAKE_SYSTEM}}' "$HERE/automation/schedulers/systemd.timer.template" && pass "systemd WakeSystem driven by WAKE_MACHINE"
+
+echo "8. delivery and machine wake are opt-in (off by default, recommended)"
+"$HERE/install.sh" --print-questions | python3 -I -c "
+import json,sys; q={x['key']:x for x in json.load(sys.stdin)}
+assert q['NOTIFY_BACKEND']['default']=='none', q['NOTIFY_BACKEND']
+assert q['WAKE_MACHINE']['default']=='no', q['WAKE_MACHINE']
+assert 'ecommended' in q['NOTIFY_BACKEND']['why'] and 'ecommended' in q['WAKE_MACHINE']['why']" && pass "defaults: NOTIFY_BACKEND=none, WAKE_MACHINE=no, both explained as recommended"
+rm -rf "$T/opt"; mkdir -p "$T/opt"
+python3 -I -c "import json; a=json.load(open('$T/answers.json')); a.pop('NOTIFY_BACKEND'); a['VAULT_PATH']='$T/opt/vault'; a['AUTOMATION_DIR']='$T/opt/auto'; json.dump(a, open('$T/opt/answers.json','w'))"
+"$HERE/install.sh" --config "$T/opt/answers.json" --yes --json > "$T/opt/summary.json" 2>/dev/null || fail "default-opt-in install failed"
+grep -q '^NOTIFY_BACKEND="none"' "$T/opt/auto/automation.env" && pass "default install delivers nowhere (brief stays in the vault)"
+[ ! -e "$T/opt/auto/optional/post-run-hook.sh" ] && pass "default install generates no wake hook"
+grep -q 'Recommended: have the brief delivered' "$T/opt/summary.json" && pass "next steps recommend turning delivery on"
+NOTIFY_BACKEND=none python3 -I "$T/opt/auto/notify.py" "$T/digest.txt" >/dev/null && pass "backend none exits 0 (stamp still set, no message)"
+if [ "$(uname)" = Darwin ]; then
+  "$HERE/install.sh" --config "$T/opt/answers.json" --yes --json --set WAKE_MACHINE=yes --set EVENING_TIMES=18:00,21:00 --set MORNING_TIMES=06:30,08:00,08:45 > "$T/opt/summary2.json" 2>/dev/null || fail "wake install failed"
+  H="$T/opt/auto/optional/post-run-hook.sh"; [ -x "$H" ] && grep -q 'SLOTS="06:30 08:00 08:45 18:00 21:00"' "$H" && pass "WAKE_MACHINE=yes generates the wake-chain hook with the schedule's slots"
+  grep -q 'sudoers' "$T/opt/summary2.json" && pass "next steps print the one sudoers command"
+  # hook logic without sudo: stub pmset through a fake sudo on PATH
+  mkdir -p "$T/opt/bin"; printf '#!/bin/bash\nshift; echo "pmset $*"\n' > "$T/opt/bin/sudo"; chmod +x "$T/opt/bin/sudo"
+  out="$(PATH="$T/opt/bin:$PATH" bash "$H" evening 2026-01-08 1805 0)"; grep -q ' 21:00:00' <<<"$out" && pass "failed 18:05 attempt arms 21:00"
+  out="$(PATH="$T/opt/bin:$PATH" bash "$H" evening 2026-01-08 2105 0)"; grep -q ' 06:30:00' <<<"$out" && pass "failed 21:05 attempt arms tomorrow 06:30"
+  out="$(PATH="$T/opt/bin:$PATH" bash "$H" morning 2026-01-08 0805 1)"; [ -z "$out" ] && pass "delivered attempt arms nothing"
+fi
 echo "ALL GREEN"

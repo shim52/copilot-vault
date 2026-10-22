@@ -30,8 +30,9 @@ The agent is given an **allowlist** (`--permission-mode dontAsk` refuses anythin
 
 ## Portability
 - `bash` (not zsh), BSD/GNU `date` detection, `caffeinate` on macOS / `systemd-inhibit` on Linux, desktop notifications via `osascript` / `notify-send`.
-- Schedulers: launchd plist with several `StartCalendarInterval` entries; systemd user timer with `WakeSystem=true` and `Persistent=true`; cron lines as a fallback (cron can't wake a sleeping machine — the stamps still make late back-fills harmless).
-- macOS extras live in `automation/optional/`: a wake chain using `pmset schedule wake` (needs a narrow sudoers rule), lid-closed battery runs (`pmset -b disablesleep`), and a one-click re-run button for Slack via a custom URL scheme app. All optional; each has a documented failure mode.
+- Schedulers: launchd plist with several `StartCalendarInterval` entries; systemd user timer with `Persistent=true` and `WakeSystem=` set from the `WAKE_MACHINE` answer; cron lines as a fallback (cron can't wake a sleeping machine — the stamps still make late back-fills harmless).
+- **Opt-ins, off by default, recommended:** delivery (`NOTIFY_BACKEND`, default `none` — the brief is always in the daily note; a backend additionally pushes the digest to you) and machine wake (`WAKE_MACHINE`, default `no` — Linux: `WakeSystem=true`; macOS: the installer generates `optional/post-run-hook.sh`, a wake chain using `pmset schedule wake` that needs one sudoers line you install yourself). Both can be turned on later by editing `automation.env` / re-running the installer.
+- Other macOS extras in `automation/optional/`, never wired automatically: lid-closed battery runs (`pmset -b disablesleep`) and a one-click re-run button for Slack via a custom URL scheme app. Each has a documented failure mode.
 
 ## Testing without a model
 `vault-tick.sh --dry-run` prints the computed plan; `NOW_OVERRIDE="YYYY-MM-DD HH:MM"` simulates any moment (both sides, weekends, stamped days). `FORCE_RUN=1` ignores the gate and stamps for a manual run. `tests/smoke.sh` runs the installer into a temp dir and exercises all of this plus the notifier renderers.

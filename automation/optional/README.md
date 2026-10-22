@@ -1,7 +1,9 @@
-# Optional extras (not wired by install.sh)
+# Optional extras (all off by default)
 
-## `post-run-hook.sh` — macOS wake chain
-launchd fires on time only if the Mac is awake; a sleeping laptop just back-fills on the next wake, which can be hours late. The fix we settled on: each non-delivering attempt arms the **next** hardware wake with `pmset schedule wake`, anchored by one `pmset repeat` on the first evening slot. That needs a narrow NOPASSWD sudoers rule (see `sudoers.example`) and only works from sleep, not from a full shutdown. Copy `post-run-hook.example.sh` to `post-run-hook.sh`, make it executable, and edit the slot table to match your schedule. The runner calls it after every attempt with `<run_mode> <brief_date> <HHMM> <brief_ok>`.
+## `post-run-hook.sh` — macOS wake chain (opt-in: `WAKE_MACHINE=yes`)
+launchd fires on time only if the Mac is awake; a sleeping laptop just back-fills on the next wake, which can be hours late. The fix we settled on: each non-delivering attempt arms the **next** hardware wake with `pmset schedule wake`, optionally anchored by one `pmset repeat` on the first evening slot. That needs a narrow NOPASSWD sudoers rule (see `sudoers.example`) and only works from sleep, not from a full shutdown.
+
+Answering **yes** to the installer's "Wake the machine for scheduled runs?" generates `post-run-hook.sh` here with your slot table and prints the one sudoers command to run (the installer never calls `sudo` itself). Answering **no** leaves nothing here and nothing touches power settings. To do it by hand instead: copy `post-run-hook.example.sh` to `post-run-hook.sh`, make it executable, and edit the slot table. The runner calls it after every attempt with `<run_mode> <brief_date> <HHMM> <brief_ok>`; without the sudoers rule it only logs a warning.
 
 Also learned the hard way: on battery with the lid closed, macOS can force sleep regardless of `caffeinate`; `pmset -b disablesleep 1` for the duration of the run (reset in the EXIT trap) is the only reliable way, and it also needs a sudoers rule.
 

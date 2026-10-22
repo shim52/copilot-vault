@@ -47,7 +47,9 @@ meeting 🗣️ Discussion   ──►    derive actions, one per box  ──►
 
 ## Why opt in to the automation?
 
-Without it, this is a well-organized vault you drive by hand with Claude's help in interactive sessions — still worth it. With it, the vault maintains itself: meeting notes never sit undistilled, every commitment surfaces until you close it, and each 1-1 opens with the list of everything outstanding between you and that person. The cost is one or two model sessions a day and a machine that is awake at the scheduled times (or a laptop that wakes itself — see `automation/optional/`).
+Without it, this is a well-organized vault you drive by hand with Claude's help in interactive sessions — still worth it. With it, the vault maintains itself: meeting notes never sit undistilled, every commitment surfaces until you close it, and each 1-1 opens with the list of everything outstanding between you and that person. The cost is one or two model sessions a day and a machine that is awake at the scheduled times.
+
+Two extras are **off by default, opt-in, and recommended**: delivery of the brief as a message (Slack / Discord / webhook / ntfy / desktop / file — without it the brief only lives in the vault's daily note) and waking the machine for scheduled runs (a systemd `WakeSystem` timer on Linux, a generated `pmset` wake-chain hook plus one sudoers line on macOS — without it a sleeping laptop gets its brief when it next wakes). The installer asks about each, explains the benefit, and leaves them off unless you say yes.
 
 ## Layout of this repo
 

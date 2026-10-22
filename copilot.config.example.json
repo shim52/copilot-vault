@@ -26,5 +26,6 @@
   "NOTIFY_BACKEND": "slack",
   "NOTIFY_URL": "https://hooks.slack.com/services/XXX/YYY/ZZZ",
   "SCHEDULER": "auto",
+  "WAKE_MACHINE": "yes",
   "CONNECTOR_TOOLS": "mcp__claude_ai_Google_Calendar__list_events mcp__claude_ai_Google_Calendar__get_event mcp__claude_ai_Slack__slack_read_channel mcp__claude_ai_Slack__slack_read_thread mcp__claude_ai_Slack__slack_search_public_and_private mcp__linear__list_cycles mcp__linear__list_issues"
 }
