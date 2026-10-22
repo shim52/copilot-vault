@@ -5,7 +5,7 @@ tags: [product]
 
 # {{PRODUCT_NAME}}
 
-> What we build, for whom, and how it's put together. Durable facts only — promote them here from meeting notes and daily capture.
+> What we build, for whom, and how it's put together. Durable facts only. Empty? Ask Claude in the vault: *"seed this page from connected sources"* (the `seed-page` skill drafts it with citations). Afterwards the daily pass promotes new facts here from meeting notes and daily capture.
 
 ## What it is
 -

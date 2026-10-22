@@ -12,7 +12,7 @@ It was built over several months of daily use and then stripped of everything sp
 
 **Rules that make an AI assistant safe in it** (`vault/CLAUDE.md`) — privacy (never leaves disk, never git), never auto-done / never auto-drop, one ask = one checkbox, the Dashboard is a mirror not a source, a dismissal list that always wins, draft-as-me with explicit go before anything is sent.
 
-**Two skills** — `as-me` (voice profile + exemplars → drafts that sound like you) and `vault-lint` (stale facts, orphans, duplicate asks).
+**Three skills** — `as-me` (voice profile + exemplars → drafts that sound like you), `seed-page` (fills an empty org / product / team / knowledge page from connected sources, with citations, gaps to Open Questions) and `vault-lint` (stale facts, orphans, duplicate asks).
 
 **The daily pass** (`automation/`, opt-in) — a portable runner (`bash`, macOS and Linux), a hardened prompt, a notifier with Slack / Discord / generic webhook / ntfy / desktop / file backends, and scheduler templates for launchd, systemd timers and cron. The agent runs allowlist-only with no shell, no web and no outbound tools; the runner delivers the digest to one fixed destination. Each side of the day (evening builds tomorrow's brief, morning refreshes and delivers it) is stamped separately, so extra scheduled fires are free and a missed one self-heals.
 
@@ -29,7 +29,11 @@ or, driven by an agent / CI:
 ```
 Requirements: python3, Obsidian, and for the daily pass the `claude` CLI logged in (subscription auth works headless; no API key needed). An AI agent can run the whole setup for you — point it at `BOOTSTRAP.md`.
 
-Then open the vault in Obsidian, start at `Index.md`, create your manager's page from the Person template, and write today's daily note.
+Then open the vault in Obsidian and read **`00-Start/How to Use This Vault.md`** — one screen on how to run a day, a 1-1 and your to-dos with it. The org / product / team pages ship empty; in the vault, ask Claude to *"seed the product page from connected sources"* and it drafts them from what your org already wrote down, with citations.
+
+## How the empty pages get filled
+
+Three ways, in the order they usually happen. **You** seed people pages and your own open commitments (`00-Start/Seed the Vault.md`); that's the hour that pays back first. **Claude on request** fills the durable pages (`01-Org`, `04-My-Team`, `05-Knowledge`) with the `seed-page` skill: read-only reads of the connected wiki / chat / tracker, bullets with sources, gaps routed to `Open Questions` rather than invented. **The daily pass** keeps them current from then on, promoting durable facts out of meeting notes and the daily note's 📌 To distill section.
 
 ## The daily loop
 

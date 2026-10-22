@@ -53,6 +53,8 @@ Inspired by the "LLM Wiki" pattern: raw notes get distilled into durable, cross-
 
 ## 🤖 Working with me (Claude)
 
+- **Orient me:** when I ask how to do something in this vault (1-1s, to-dos, the brief, what to open), or when the vault looks fresh (`Log.md` holds only the setup entry, or `01-Org`/`04-My-Team` pages are still empty shells), point me to `00-Start/How to Use This Vault.md` first and offer to seed the empty pages.
+- **Seed pages:** when I ask to fill, seed or populate an empty page (product, How We Work, Team Overview, a knowledge page), use the `seed-page` skill: read the vault and the connected sources read-only, draft with citations, route gaps to `Open Questions`. Never invent facts to fill a section.
 - **Ingest:** when I share a doc / chat thread / ticket / page, read it, discuss takeaways, update the relevant wiki pages, and append to `Log.md`.
 - **Query:** answer from the vault first; cite the page(s). Say when the vault doesn't have it rather than guessing.
 - **Lint:** when asked (or via the `vault-lint` skill), health-check for stale claims, contradictions, orphan pages, and missing cross-links.

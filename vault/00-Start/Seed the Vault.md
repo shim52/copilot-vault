@@ -18,6 +18,7 @@ tags: [start, checklist]
 - [ ] Put standing questions nobody has answered yet into [[Open Questions]]
 
 ## 3. What you already know
+> Don't type what the org already wrote down. In the vault, ask Claude: *"seed [[Team Overview]] from connected sources"* — it reads the wiki / chat / tracker read-only, drafts the page with citations, and puts what it couldn't find into [[Open Questions]]. Then correct it; that's faster than writing from scratch.
 - [ ] [[Team Overview]]: mission, roster, who owns what, the current focus
 - [ ] [[Team Processes]] and [[How We Work]]: the rituals, how work gets planned, reviewed and shipped — as they *actually* run
 - [ ] [[{{PRODUCT_NAME}}]]: the shape of the thing you work on, in a page you'd hand your replacement

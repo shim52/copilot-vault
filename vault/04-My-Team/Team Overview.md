@@ -6,7 +6,7 @@ updated: {{TODAY}}
 
 # {{TEAM_NAME}} — Team Overview
 
-> Mission, roster, what each person owns, and the current focus. The daily pass reads the roster when building [[Team Tasks]].
+> Mission, roster, what each person owns, and the current focus. The daily pass reads the roster when building [[Team Tasks]]. Empty? Ask Claude: *"seed this page from connected sources"*.
 
 ## Mission
 -
