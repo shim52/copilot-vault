@@ -18,6 +18,7 @@ grep -q "Test User" "$T/vault/CLAUDE.md" && pass "placeholders substituted"
 [ -f "$T/vault/01-Org/Product/TestProduct.md" ] && pass "placeholder in filename substituted"
 ! grep -rl '{{[A-Z_]*}}' "$T/vault" --include='*.md' | grep -v 99-Templates | grep -q . && pass "no unsubstituted placeholders outside templates"
 grep -q "date:YYYY-MM-DD" "$T/vault/99-Templates/Daily Note.md" && pass "Obsidian template variables left intact"
+[ -d "$T/vault/06-Daily" ] && [ -z "$(find "$T/vault" -name .gitkeep)" ] && pass "empty folders created, no .gitkeep copied"
 [ "$(cat "$T/vault/.gitignore" | tail -1)" = "*" ] && [ ! -e "$T/vault/gitignore.template" ] && pass "installed vault gets an ignore-everything .gitignore"
 [ "$(stat -f %Lp "$T/auto/automation.env" 2>/dev/null || stat -c %a "$T/auto/automation.env")" = "600" ] && pass "automation.env is 0600"
 

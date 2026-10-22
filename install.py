@@ -211,6 +211,8 @@ def copy_vault(a, p, dry, force):
         if not dry:
             os.makedirs(dest_dir, exist_ok=True)
         for fn in files:
+            if fn == ".gitkeep":        # only there so git carries the empty folder; the directory itself was just created
+                continue
             src = os.path.join(root, fn)
             dst = os.path.join(dest_dir, ".gitignore" if fn == "gitignore.template" else subst(fn, p))   # the template vault must be committable; the installed vault ignores everything
             if os.path.exists(dst) and not force:
