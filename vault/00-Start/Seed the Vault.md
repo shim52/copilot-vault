@@ -32,6 +32,7 @@ tags: [start, checklist]
 - [ ] Build [[Voice Profile]] + [[Exemplars]] from your own past messages ([[07-Voice/README]]) so drafts sound like you
 
 ## 6. Start the loop
+- [ ] Read [[How to Use This Vault]] once — the moves for mornings, 1-1s, to-dos and end of day
 - [ ] Write today's daily note; capture one `- raise <topic> with [[Person]]`
 - [ ] Before your next 1-1, open that person's page and check the 📦 Open items are complete — tomorrow's prep is built from them
 - [ ] Run the daily pass once by hand and read the brief it produces

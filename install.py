@@ -436,7 +436,7 @@ def main():
             summary["tick_dry_run_ok"] = r.returncode == 0
             log("  runner self-check: " + ("ok" if r.returncode == 0 else f"FAILED\n{r.stdout}{r.stderr}"))
     next_steps = [
-        f"Open {a['VAULT_PATH']} in Obsidian (File → Open folder as vault). Start at Index.md.",
+        f"Open {a['VAULT_PATH']} in Obsidian (File → Open folder as vault). Start at Index.md, then read 00-Start/How to Use This Vault.md — the daily playbook (mornings, 1-1s, to-dos, end of day).",
         (f"Open 00-Start/Onboarding Checklist.md and the 30-60-90 Plan; create 02-People/{a['MANAGER_NAME']}.md from 99-Templates/Person.md as a first page."
          if a["NEW_TO_ROLE"] == "yes" else
          f"Open 00-Start/Seed the Vault.md: create 02-People/ pages (manager {a['MANAGER_NAME']} first) with today's 📦 Open items, then dump commitments into My Tasks."),

@@ -26,7 +26,7 @@ Write the answers to a JSON file (keys exactly as in `--print-questions`; see `c
 - Check the scheduler loaded (`launchctl list | grep copilot-vault`, `systemctl --user list-timers`, or `crontab -l`).
 
 ## 5. Hand over
-Relay the installer's next steps. The three that matter most: open the vault in Obsidian and start from `Index.md`; create the manager's page and one page per teammate (the `Email:` line is what lets the pass match calendar attendees); write today's daily note and try `- raise <topic> with [[Person]]` under 📤 To raise so they see the capture → route flow tomorrow.
+Relay the installer's next steps. The three that matter most: open the vault in Obsidian, start from `Index.md` and read `00-Start/How to Use This Vault.md` (the daily playbook: mornings, 1-1s, to-dos, end of day); create the manager's page and one page per teammate (the `Email:` line is what lets the pass match calendar attendees); write today's daily note and try `- raise <topic> with [[Person]]` under 📤 To raise so they see the capture → route flow tomorrow.
 
 ## Removing it
 `./install.sh --uninstall-schedule` removes the launchd / systemd / cron entry. The vault and `AUTOMATION_DIR` are plain folders; delete them if wanted. Nothing else is touched.

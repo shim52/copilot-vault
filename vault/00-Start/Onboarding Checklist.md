@@ -25,3 +25,4 @@ tags: [start, checklist]
 - [ ] Obsidian + this vault; daily pass installed if wanted (see the copilot-vault README)
 - [ ] Claude Code connectors for calendar / chat / tracker (read-only)
 - [ ] First daily note written; first `- raise <topic> with [[Person]]` captured
+- [ ] Read [[How to Use This Vault]] — the daily playbook (mornings, 1-1s, to-dos, end of day)

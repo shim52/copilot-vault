@@ -3,6 +3,7 @@
 > Home base for operating as **{{ROLE}}**. Private vault — see [[CLAUDE]] for rules.
 
 ## 🚀 Cockpit
+- [[How to Use This Vault]] — the daily playbook: morning, 1-1s, to-dos, end of day, what to ask Claude
 - [[Dashboard]] — ✅ everything I need to handle, in one place (a mirror; act at the source)
 - [[My Tasks]] — durable home for my personal to-dos, by disposition
 - [[Team Tasks]] — headline view of my team's in-flight work
